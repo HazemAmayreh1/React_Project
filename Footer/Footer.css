@@ -1,0 +1,38 @@
+.footer {
+    background-color: rgb(153, 152, 152);
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .links a,
+  .social-media a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .links a:hover,
+  .social-media a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .footer-content {
+      flex-direction: column;
+    }
+    
+    .links a,
+    .social-media a {
+      margin: 5px 0;
+    }
+  }
+  

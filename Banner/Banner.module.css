@@ -1,0 +1,70 @@
+/* Banner.module.css */
+.container {
+  box-sizing: border-box;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ background-color: rgb(180, 179, 179);
+   overflow: hidden;
+  padding: 10rem;
+}
+
+.content {
+  flex: 1;
+}
+
+.title {
+  font-size: 4rem;
+  color: #e63946; 
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #fff; /* Dark grey color for text */
+}
+
+.button {
+  padding: 12px 24px;
+  background-color: #5a626b; /* Adjust the color to match your design */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+.imageWrapper {
+  flex-shrink: 0; /* Prevent the image from shrinking */
+}
+
+.image {
+  max-width: 50rem;
+  max-height: 40rem;
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .imageWrapper {
+    margin-top: 20px;
+  }
+
+  .image {
+    max-width: 100%;
+  }
+}
