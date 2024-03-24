@@ -21,7 +21,7 @@ function Categories() {
   return (
     <>
 
-<Swiper
+    <Swiper
         autoHeight={true}
         spaceBetween={20}
         navigation={true}
