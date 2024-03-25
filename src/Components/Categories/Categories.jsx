@@ -11,7 +11,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 function Categories() {
   const [categories, setCategories] = useState([]);
   const getCategories = async ()=>{
-    const {data}=await axios.get(`https://ecommerce-node4.vercel.app/categories/active?page=1&limit=10`);
+    const {data}=await axios.get(`${import.meta.env.VITE_API}/categories/active?page=1&limit=9`);
    setCategories(data.categories);
   }
   useEffect(()=>{
