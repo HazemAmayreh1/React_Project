@@ -39,8 +39,8 @@ body {
   color: gray;
 }
 .swiper-pagination-bullet {
-  background-color: gray; /* Or any color you wish */
+  background-color: gray; 
 }
 .swiper-pagination-bullet-active {
-  background-color: darkgray; /* Or any color you wish */
+  background-color: darkgray; 
 }

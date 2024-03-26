@@ -64,4 +64,16 @@
   .submitButton:hover {
     background-color: #0056b3;
   }
+  .error {
+    color: #ff3860; 
+    font-size: 0.875rem; 
+    margin-top: 0.25rem; 
+    margin-bottom: 0.5rem; 
+    width: 100%; 
+    text-align: left; 
+  }
+  .inputError {
+    border: 2px solid #ff3860; 
+    background-color: #ffe6e6; 
+  }
   

@@ -4,10 +4,10 @@ import { Outlet } from 'react-router-dom'
 import Categories from './Components/Categories/Categories'
 import Footer from '../Footer/Footer'
 
-function Root() {
+function Root({userName}) {
   return (
     <>
-      <Navbar/>
+      <Navbar userName={userName}/>
       <Outlet/>
       
      

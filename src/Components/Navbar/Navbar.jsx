@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 import  './Navbar.css';
-function Navbar() {
+function Navbar({userName}) {
   return (
     <>
   <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -23,6 +23,9 @@ function Navbar() {
         <ul className='d-flex justify-content-end navbar-nav'>
         <li className="nav-item">
           <NavLink className="nav-link" to='/cart'>CART</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link">welcom {userName}</NavLink>
         </li>
        <li className="nav-item dropdown">
   <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

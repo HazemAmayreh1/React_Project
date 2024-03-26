@@ -8,10 +8,17 @@ import Login from './Components/Login/Login';
 import Regsiter from './Components/Regsiter/Regsiter';
 import Cart from './Components/Cart/Cart';
 import NotFound from './Components/NotFound/NotFound';
+import { ToastContainer } from "react-toastify";
+import ProtectedRouter from "./ProtectedRouter/ProtectedRouter";
+import { useState } from "react";
+
+function App() {
+const [userName,setUserName]= useState('Hazem');
 const router = createBrowserRouter([
   {
+    
     path: "/",
-    element: <Root/>,
+    element: <Root userName={userName} />,
     children: [
       {
         path: "/",
@@ -20,6 +27,7 @@ const router = createBrowserRouter([
       {
         path: "categories",
         element: <Categories/>,
+       
       },
       {
         path: "login",
@@ -35,7 +43,13 @@ const router = createBrowserRouter([
       },
       {
         path: "products",
-        element: <Products/>,
+        element:
+        <ProtectedRouter>
+        <Products userName={userName}/>
+        </ProtectedRouter>
+        
+         
+        
       },
       {
         path: '*',
@@ -45,11 +59,11 @@ const router = createBrowserRouter([
   },
 ]);
 
-
-function App() {
   return (
     <>
       <RouterProvider router={router} />
+      <ToastContainer />
+      
      
     </>
   )

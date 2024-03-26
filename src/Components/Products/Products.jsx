@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Products() {
+function Products({userName}) {
   return (
     <div>
-      <h2>Products</h2>
+      <h2>Products {userName}</h2>
     </div>
   )
 }
