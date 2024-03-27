@@ -30,7 +30,7 @@
     right: 0;
     bottom: 0;
     z-index: -1;
-    background-image: url(https://img.freepik.com/free-photo/organized-desk-with-copy-space_23-2148219270.jpg);
+    background-image: url(https://wallpapers.com/images/hd/grey-aesthetic-pattern-190rmn46ypy7vq2q.jpg);
     background-blend-mode: overlay;
     background-size: cover;
     filter: blur(5px) brightness(0.75) grayscale(20%) contrast(110%);
@@ -55,8 +55,8 @@
   }
   
   .button {
-    background-color: #007bff;
-    color: white;
+    background-color: #ccc;
+    color: black;
     border: none;
     padding: 10px;
     border-radius: 4px;
@@ -66,17 +66,22 @@
   }
   
   .button:hover {
-    background-color: #0056b3;
+    background-color: #bbb;
   }
   
   .link {
     text-align: center;
-    margin-top: 1rem;
-    color: #007bff;
+    color: black;
     cursor: pointer;
-    text-decoration: underline;
+    text-transform: capitalize;
   }
-  
+  .link:hover {
+    color: #fff;
+    background-color: #ccc;
+    width: 100px;
+    border-radius: 5px;
+   
+  }
   .checkboxGroup {
     display: flex;
     align-items: center;

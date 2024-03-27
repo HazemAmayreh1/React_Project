@@ -1,18 +1,38 @@
-.nav-link{
-    position: relative;
-}
+.navbar {
+    background-color: rgb(250, 249, 246); /* Replace with your preferred color */
+    font-family: 'Roboto', sans-serif; /* This is the font you included */
+    padding-top: 1rem; /* Increase top padding */
+    padding-bottom: 1rem; /* Increase bottom padding */
+  }
+  
+  .navbar-brand, .nav-link {
+    color: black !important; 
+  }
+  
+  .nav-link {
+    padding-left: 1rem; 
+    padding-right: 1rem; 
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .nav-link:hover, .nav-link:focus {
+    color: #fff!important;
+    background-color: #ccc;
+    border-radius: 10px;
+  }
 
-.nav-link::after{
-    content: '';
-    opacity: 0;
-    transition: all 0.4s;
-    height: 2px;
-    width: 100%;
-    background-color: black;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-.nav-link:hover::after{
-    opacity: 1;
-}
+  .dropdown-menu {
+    background-color: #ccc; /* Background color for the dropdown */
+  }
+  
+  .dropdown-item {
+    color: #ffffff !important; /* Font color for dropdown items */
+  }
+  
+  .dropdown-item:hover, .dropdown-item:focus {
+    background-color: #ddd; /* Background color when hovering over dropdown items */
+    color: #fff !important; /* Font color when hovering over dropdown items */
+  }
+  .navbar .dropdown-menu .dropdown-item.active {
+    background-color: #ddd; /
+  }

@@ -5,7 +5,7 @@ import { object, string } from "yup";
 import { Bounce, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from "../../../loader/Loader";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Register() {
   const navigate = useNavigate();
@@ -83,14 +83,14 @@ function Register() {
         );
         if(data.message=='success'){
           toast.success('account created succesfully', {
-            position: "bottom-center",
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "dark",
+            theme: "light",
             transition: Bounce,
             });
 
@@ -101,14 +101,14 @@ function Register() {
       } catch (error) {
         if(error.response.status=== 409){
           toast.error(error.response.data.message,{
-            position: "bottom-center",
+            position: "top-right",
             autoClose: true,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "dark",
+            theme: "light",
             transition: Bounce,
             });
             
@@ -116,14 +116,14 @@ function Register() {
          else if (error.inner) {
       error.inner.forEach(err => {
         toast.error(err.message, {
-          position: "bottom-center",
+          position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "dark",
+          theme: "light",
         });
       });
     } else {
@@ -135,7 +135,7 @@ function Register() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "dark",
+        theme: "light",
       });
     }
       } finally {
@@ -196,7 +196,9 @@ function Register() {
             Register{loader && <Loader />} 
             </button>
             
+           
           </div>
+          <NavLink className={styles.link} aria-current="page" to='/Login'>i have account</NavLink>
         </form>
       
       </div>

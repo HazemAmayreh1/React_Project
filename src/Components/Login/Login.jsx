@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Login.module.css";
 import axios from "axios";
 import { object, string } from "yup";
@@ -6,8 +6,10 @@ import { Bounce, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from "../../../loader/Loader";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../../context/User";
 
 function Login() {
+  const {userName,setUserToken} = useContext(UserContext);
   const navigate = useNavigate();
   const [user, setUser] = useState({
     email: "",
@@ -63,50 +65,50 @@ function Login() {
           }
         );
 
-        localStorage.setItem('userToken',data.token)
-  
         if(data.message=='success'){
-          toast.success('Login Succesfully', {
-            position: "bottom-center",
+          toast.success('Login Successfully welcome',{userName},{
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "dark",
+            theme: "light",
             transition: Bounce,
             });
 
+            localStorage.setItem('userToken',data.token);
+            setUserToken(data.token);
             navigate('/');
-
+            console.log({userName});
         
         }
         
       } catch (error) {
           toast.error(error.response.data.message,{
-            position: "bottom-center",
+            position: "top-right",
             autoClose: true,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "dark",
+            theme: "light",
             transition: Bounce,
             });
             
          if (error.inner) {
       error.inner.forEach(err => {
         toast.error(err.message, {
-          position: "bottom-center",
+          position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "dark",
+          theme: "light",
         });
       });
     }
