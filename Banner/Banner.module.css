@@ -31,22 +31,22 @@
   cursor: pointer;
   font-size: 1em;
   text-transform: uppercase;
-  margin-bottom: 20px; /* Space from the bottom */
+  margin-bottom: 20px; 
 }
 
 .model {
-  background: url('img/png-clipart.png') no-repeat center center / cover;
+  background: url(img/png-clipart.png) no-repeat center center / cover;
   width: 100%;
-  height: 600px; /* Adjust as needed */
-  order: -1; /* Make the image appear on top on smaller screens */
-  -webkit-filter: grayscale(50%); /* For Safari 6.0 to 9.0 */
-  filter: grayscale(50%); /* Converts image to 50% grayscale */
+  height: 600px; 
+  order: -1; 
+  -webkit-filter: grayscale(50%); 
+  filter: grayscale(50%); 
 }
 
-/* Small devices (landscape phones, 576px and up) */
+
 @media (min-width: 300px) {
   .title {
-    font-size: 1.5em; /* Smaller font size for very small devices */
+    font-size: 1.5em; 
   }
   .subtitle {
     font-size: 0.8em;
@@ -55,7 +55,7 @@
     font-size: 0.7em;
   }
   .model {
-    height: 200px; /* Adjust the height for smaller screens */
+    height: 200px; 
   }
 }
 @media (min-width: 576px) { 
@@ -67,7 +67,7 @@
   }
 }
 
-/* Medium devices (tablets, 768px and up) */
+
 @media (min-width: 768px) {
   .container {
     flex-direction: row;
@@ -76,8 +76,8 @@
     width: 50%;
   }
   .model {
-    height: 100vh; /* Take full height */
-    order: 0; /* Reset order */
+    height: 100vh;
+    order: 0; 
   }
 }
 

@@ -12,6 +12,7 @@ import { ToastContainer } from "react-toastify";
 import ProtectedRouter from "./ProtectedRouter/ProtectedRouter";
 import { useState } from "react";
 import UserContextProvider from "../context/User";
+import CategoryProducts from "./Components/Categories/CategoryProducts";
 
 function App() {
 
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
         
          
         
+      },
+      {
+        path:'/categories/:id',
+        element:<CategoryProducts/>
       },
       {
         path: '*',
