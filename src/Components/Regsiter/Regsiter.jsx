@@ -157,40 +157,50 @@ function Register() {
         <form onSubmit={handleSubmit} className={styles.form}>
           <h2 className={styles.title}>Sign up</h2>
           <div className={styles.inputGroup}>
+          <div className={styles.inputBorder}>
+          <label htmlFor="userName" className={styles.insideLabel}>Name</label>
             <input
               type="text"
               name="userName"
-              placeholder="Your Name"
               value={user.userName}
               onChange={handleChange}
               className={`${styles.input} ${errors.userName ? styles.inputError : ''}`}
             />
+            </div>
             {errors.userName && <p className={styles.error}>{errors.userName}</p>}
+            <div className={styles.inputBorder}>
+            <label htmlFor="email" className={styles.insideLabel}>Email</label>
             <input
               type="email"
               name="email"
-              placeholder="Email"
               value={user.email}
               onChange={handleChange}
               className={`${styles.input} ${errors.userName ? styles.inputError : ''}`}
             />
+            </div>
              {errors.email && <p className={styles.error}>{errors.email}</p>}
+
+             <div className={styles.inputBorder}>
+             <label htmlFor="password" className={styles.insideLabel}>Password</label>
             <input
               type="password"
               name="password"
-              placeholder="Password"
               value={user.password}
               onChange={handleChange}
               className={`${styles.input} ${errors.userName ? styles.inputError : ''}`}
             />
+            </div>
            {errors.password && <p className={styles.error}>{errors.password}</p>}
 
+           <div className={styles.inputBorder}>
+           <label htmlFor="image" className={styles.insideLabel}>file image</label>
             <input
               type="file"
               name="image"
               onChange={handleImageChange}
               className={`${styles.input} ${errors.userName ? styles.inputError : ''}`}
             />
+            </div>
            {errors.image && <p className={styles.error}>{errors.image}</p>}
             <button type="submit" className={styles.button} >
             Register{loader && <Loader />} 

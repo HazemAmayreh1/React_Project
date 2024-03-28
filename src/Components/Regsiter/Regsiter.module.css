@@ -35,10 +35,25 @@
     background-size: cover;
     filter: blur(5px) brightness(0.75) grayscale(20%) contrast(110%);
   }
+  form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
   
   .title {
+    background-color: #f7f7f7; 
+    color: #333; 
     text-align: center;
-    margin-bottom: 2rem;
+    padding: 20px 0; 
+    margin: -20px -20px 20px -20px; 
+    border-bottom: 2px solid #ccc; 
+    font-size: 24px; 
+    font-weight: bold; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 0 auto; 
+    width: 100%; 
   }
   
   .inputGroup {
@@ -48,10 +63,26 @@
   }
   
   .input {
+    width: calc(100% - 20px); 
     padding: 10px;
+    border: none;
+    box-sizing: content-box;
+  }
+  .inputBorder {
+    position: relative; 
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-top: 5px;
+    margin-bottom: 10px; 
+  }
+  
+  .insideLabel {
+    position: absolute;
+    top: -10px; 
+    left: 10px; 
+    background: #FFF; 
+    padding: 0 4px; 
+    color: #777;
+    font-size: 0.8em; 
   }
   
   .button {
@@ -97,6 +128,7 @@
     flex-grow: 1;
   }
   
+  
   .input:focus {
     border-color: #007bff;
     outline: none;
@@ -131,7 +163,12 @@
     background-color: #ffe6e6; 
   }
   
-  
+  @media (min-width: 481px) {
+    .title {
+      font-size: 1.75rem; 
+    }
+  }
+
   @media (max-width: 768px) {
     .container {
       padding: 1rem;
@@ -139,7 +176,7 @@
     }
   
     .title {
-      font-size: 1.5rem; 
+      font-size: 2rem; 
     }
   
     .input,
@@ -156,4 +193,11 @@
     .link {
       font-size: 0.9rem; 
     }
+    
   }
+  @media (min-width: 1025px) {
+    .title {
+      font-size: 2.5rem; 
+    }
+  }
+  

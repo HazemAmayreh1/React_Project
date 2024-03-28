@@ -127,7 +127,8 @@ function Login() {
         <form onSubmit={handleSubmit} className={styles.form}>
         <h2 className={styles.title}>Login</h2>
           <div className={styles.formGroup}>
-          <label className={styles.label}>Email</label>
+          <div className={styles.inputBorder}>
+          <label htmlFor="email" className={styles.insideLabel}>Email</label>
             <input
               type="email"
               name="email"
@@ -135,10 +136,12 @@ function Login() {
               onChange={handleChange}
               className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
             />
+            </div>
              {errors.email && <p className={styles.error}>{errors.email}</p>}
              </div>
              <div className={styles.formGroup}>
-             <label className={styles.label}>Password</label>
+             <div className={styles.inputBorder}>
+          <label htmlFor="password" className={styles.insideLabel}>Password</label>
             <input
               type="password"
               name="password"
@@ -146,6 +149,7 @@ function Login() {
               onChange={handleChange}
               className={`${styles.input} ${errors.password ? styles.inputError : ''}`}
             />
+            </div>
            {errors.password && <p className={styles.error}>{errors.password}</p>}
            </div>
             <button type="submit" className={styles.submitButton} >
