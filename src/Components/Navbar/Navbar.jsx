@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './Navbar.css';
 import { UserContext } from '../../../context/User';
+import { Slide, toast } from 'react-toastify';
 
 function Navbar() {
   const {userName,setUserName,setUserToken} = useContext(UserContext);
@@ -12,13 +13,29 @@ function Navbar() {
     localStorage.removeItem('userToken');
     setUserToken(null);
     setUserName(null);
-    navigate('/login');
+    
+    toast.info('You has been logged out.', {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Slide,
+      onClose: () => navigate('/login') 
+      });
 
   }
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <div className="container">
-        <NavLink className="navbar-brand" to='/'>ecomerse</NavLink>
+      <NavLink className="navbar-brand" to="/">
+      <img src="https://www.pngitem.com/pimgs/m/448-4483996_bag-transparent-background-shopping-bag-icon-png-png.png" alt="Logo" width={40} height={40} />
+      <span className='logoText'>offWhite</span>
+  </NavLink>
+
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -36,9 +53,15 @@ function Navbar() {
               {userName}
               </a>
               <ul className="dropdown-menu dropdown-menu-end">
-                <li><NavLink className="dropdown-item" to='/cart'>CART</NavLink></li>
+                <li><NavLink className="dropdown-item" to='/cart'>
+                <img src="../img/cart.png" alt="Logout icon" width={25} height={25} />
+                  CART
+                  </NavLink></li>
                 <li><hr className="dropdown-divider" /></li>
-                <li><NavLink className="dropdown-item" onClick={logout}>LOGOUT</NavLink></li>
+                <li><NavLink className="dropdown-item" onClick={logout}>
+                <img src="../img/logout.png" alt="Logout icon" width={20} height={20} />  
+                LOGOUT
+                  </NavLink></li>
               </ul>
             </li>
           </ul>

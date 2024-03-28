@@ -1,8 +1,18 @@
 .navbar {
-    background-color: rgb(250, 249, 246); /* Replace with your preferred color */
-    font-family: 'Roboto', sans-serif; /* This is the font you included */
-    padding-top: 1rem; /* Increase top padding */
-    padding-bottom: 1rem; /* Increase bottom padding */
+    background-color: rgb(250, 249, 246); 
+    font-family: 'Roboto', sans-serif; 
+    padding-top: 1rem; 
+    padding-bottom: 1rem;
+  }
+  .logoText {
+    font-family: 'Arial', sans-serif; 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    color: #ccc; 
+    margin-left: 0.5rem; 
+    vertical-align: middle; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05rem; 
   }
   
   .navbar-brand, .nav-link {
@@ -22,17 +32,19 @@
   }
 
   .dropdown-menu {
-    background-color: #ccc; /* Background color for the dropdown */
+    background-color: #ccc; 
   }
   
   .dropdown-item {
-    color: #ffffff !important; /* Font color for dropdown items */
+    color: #ffffff !important; 
   }
   
   .dropdown-item:hover, .dropdown-item:focus {
-    background-color: #ddd; /* Background color when hovering over dropdown items */
-    color: #fff !important; /* Font color when hovering over dropdown items */
+    background-color: #ccc; 
+    color: #fff !important; 
+    
+
   }
   .navbar .dropdown-menu .dropdown-item.active {
-    background-color: #ddd; /
+    background-color: #ccc; 
   }

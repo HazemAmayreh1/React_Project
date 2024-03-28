@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/User";
 
 function Login() {
-  const {userName,setUserToken} = useContext(UserContext);
+  const {userName,setUserToken,setUserName} = useContext(UserContext);
   const navigate = useNavigate();
   const [user, setUser] = useState({
     email: "",
@@ -64,24 +64,24 @@ function Login() {
             password:user.password
           }
         );
-
-        if(data.message=='success'){
-          toast.success('Login Successfully welcome',{userName},{
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
+        if (data.message === 'success') {
+          setUserToken(data.token); 
+          setUserName(data.userName); 
+          setTimeout(() => {
+            toast.success(`Login Successfully. Welcome, ${data.userName}!`, {
+              position: "top-right",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
             });
-
+          }, 0);
             localStorage.setItem('userToken',data.token);
             setUserToken(data.token);
             navigate('/');
-            console.log({userName});
         
         }
         
@@ -122,8 +122,8 @@ function Login() {
   };
   
   return (
+    <div className={styles.hero}>
     <div className={styles.loginContainer}>
-    <div className={styles.pageBackground}></div>
         <form onSubmit={handleSubmit} className={styles.form}>
         <h2 className={styles.title}>Login</h2>
           <div className={styles.formGroup}>
@@ -152,7 +152,7 @@ function Login() {
             Login{loader && <Loader />} 
             </button>
         </form>
-      
+        </div>
       </div>
     
   );

@@ -1,24 +1,28 @@
 import React from 'react';
-import './Footer.css'; 
+import { Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <div className="links">
-          <a href="#">About Us</a>
-          <a href="#">Contact</a>
-          <a href="#">Privacy Policy</a>
+    <footer className="bg-light text-center py-3">
+      <Container>
+        <div className="mb-3">
+          <a href="#" className="text-dark mx-2 icon-hover" title="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
+            <i className="bi bi-facebook"></i>
+          </a>
+          <a href="#" className="text-dark mx-2 icon-hover" title="Follow us on Twitter" target="_blank" rel="noopener noreferrer">
+            <i className="bi bi-twitter"></i>
+          </a>
+          <a href="#" className="text-dark mx-2 " title="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+            <i className="bi bi-instagram"></i>
+          </a>
+          <a href="#" className="text-dark mx-2 icon-hover" title="Connect with us on LinkedIn" target="_blank" rel="noopener noreferrer">
+            <i className="bi bi-linkedin"></i>
+          </a>
         </div>
-        <div className="social-media">
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
-        <div className="copyright">
-          © {new Date().getFullYear()} Hazem Amayreh.
-        </div>
-      </div>
+        <p>&copy; {new Date().getFullYear()} <a className="text-dark" href="mailto:hazemamayreh44@gmail.com">Hazem Amayreh.</a></p>
+      </Container>
     </footer>
   );
 }
