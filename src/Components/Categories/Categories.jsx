@@ -35,8 +35,8 @@ function Categories() {
         navigation={true}
         virtual
       >
-        {categories.map((category, index) => (
-          <SwiperSlide key={category._id} virtualIndex={index}>
+        {categories.map((category) => (
+          <SwiperSlide key={category._id} >
             <Link to={`/categories/${category.id}`}>
             <div className='showCategorie'>
               <img src={category.image.secure_url} alt={category.name} />

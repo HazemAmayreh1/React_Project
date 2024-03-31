@@ -15,7 +15,7 @@ import { jwtDecode } from "jwt-decode";
     useEffect( ()=>{
         getUserData();
     },[userToken]);
-    return  <UserContext.Provider value={{setUserToken,userName,setUserName}} >
+    return  <UserContext.Provider value={{setUserToken,userName,setUserName,userToken}} >
         {children}
     </UserContext.Provider>
  };

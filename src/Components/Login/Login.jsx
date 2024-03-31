@@ -5,7 +5,7 @@ import { object, string } from "yup";
 import { Bounce, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from "../../../loader/Loader";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/User";
 
 function Login() {
@@ -70,7 +70,7 @@ function Login() {
           setTimeout(() => {
             toast.success(`Login Successfully. Welcome, ${data.userName}!`, {
               position: "top-right",
-              autoClose: 1000,
+              autoClose: 4000,
               hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: true,
@@ -155,6 +155,7 @@ function Login() {
             <button type="submit" className={styles.submitButton} >
             Login{loader && <Loader />} 
             </button>
+            <NavLink className={styles.link} aria-current="page" to='/register'>i dont have account</NavLink>
         </form>
         </div>
       </div>

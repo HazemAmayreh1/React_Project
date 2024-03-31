@@ -13,6 +13,7 @@ import ProtectedRouter from "./ProtectedRouter/ProtectedRouter";
 import { useState } from "react";
 import UserContextProvider from "../context/User";
 import CategoryProducts from "./Components/Categories/CategoryProducts";
+import ProductInfo from "./Components/Products/ProductInfo";
 
 function App() {
 
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path:'/categories/:id',
         element:<CategoryProducts/>
+      },
+      {
+        path:'/ProductInfo/:id',
+        element:<ProductInfo/>
       },
       {
         path: '*',

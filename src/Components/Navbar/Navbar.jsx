@@ -1,19 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
 import './Navbar.css';
 import { UserContext } from '../../../context/User';
 import { Slide, toast } from 'react-toastify';
+import Loader from "../../../loader/Loader";
 
 function Navbar() {
   const {userName,setUserName,setUserToken} = useContext(UserContext);
   const navigate = useNavigate();
+  const [loader,setLoader]=useState(false);
   const logout = ()=>{
     localStorage.removeItem('userToken');
     setUserToken(null);
     setUserName(null);
-    
+    setLoader(true);
     toast.info('You has been logged out.', {
       position: "top-right",
       autoClose: 1000,
@@ -47,14 +49,16 @@ function Navbar() {
           {
               userName?
               <>
-              <ul className='navbar-nav'>
+              <ul className='navbar-nav '>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a className="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../img/green active .png" alt="green active icon" width={15} height={15} className="active-icon"/>
               {userName}
               </a>
+              
               <ul className="dropdown-menu dropdown-menu-end">
                 <li><NavLink className="dropdown-item" to='/cart'>
-                <img src="../img/cart.png" alt="Logout icon" width={25} height={25} />
+                <img src="../img/cart.png" alt="cart icon" width={25} height={25} />
                   CART
                   </NavLink></li>
                 <li><hr className="dropdown-divider" /></li>

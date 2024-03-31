@@ -55,7 +55,9 @@
   color:#aaa; 
 }
 
-/* Custom pagination */
 .swiper-pagination-bullet {
   background: #aaa;
+}
+.swiper-pagination {
+  display: none;
 }

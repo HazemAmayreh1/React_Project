@@ -84,7 +84,7 @@ function Register() {
         if(data.message=='success'){
           toast.success('account created succesfully', {
             position: "top-right",
-            autoClose: 2000,
+            autoClose: 4000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
