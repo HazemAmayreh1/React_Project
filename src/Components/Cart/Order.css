@@ -1,0 +1,118 @@
+.order-info-container {
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin: 40px auto;
+    padding: 20px;
+  }
+  
+  
+  .order-info-container h2 {
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .total-price {
+    color: #ff5722;
+    font-weight: bold;
+    margin: 20px 0;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+
+  .order-form input, 
+  .order-form button {
+    width: calc(100% - 20px); 
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .order-form input {
+    font-size: 1rem;
+  }
+  
+  .order-form input::placeholder {
+    color: #aaa;
+  }
+  
+  .order-form button {
+    background-color: #ff5722;
+    color: white;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .order-form button:hover, 
+  .order-form button:focus { 
+    background-color: #a73f20;
+    outline: none;
+  }
+  
+  
+  @media (max-width: 1024px) {
+    .order-info-container {
+      max-width: 90%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .order-info-container h2 {
+      font-size: 1.8rem;
+    }
+  
+    .total-price {
+      font-size: 1.3rem;
+    }
+  
+    .order-form button {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .order-info-container {
+      width: 100%;
+      box-shadow: none; 
+    }
+  
+    .order-info-container h2 {
+      font-size: 1.6rem;
+    }
+  
+    .total-price {
+      font-size: 1.2rem;
+    }
+  
+    .order-form input, 
+    .order-form button {
+      width: 100%; 
+    }
+  
+    .order-form button {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media print {
+    .order-info-container {
+      box-shadow: none;
+      margin: 0;
+    }
+  
+    .order-form button {
+      display: none; 
+    }
+  }
+  

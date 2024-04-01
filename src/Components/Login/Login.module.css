@@ -87,24 +87,24 @@
 }
 
 .submitButton {
-  background-color: #C0C0C0; /* A shade of grey */
-  color: #FFFFFF; /* White text */
-  border: none; /* No border */
-  padding: 10px 20px; /* Top/bottom and left/right padding */
-  text-align: center; /* Center the text */
-  text-decoration: none; /* No underline */
-  display: inline-block; /* Allows setting dimensions */
-  font-size: 16px; /* Text size */
-  margin: 4px 2px; /* Spacing around the button */
-  transition-duration: 0.4s; /* Smooth transition for hover effects */
-  cursor: pointer; /* Cursor indicates clickable item */
-  border-radius: 4px; /* Rounded corners */
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15); /* Slight shadow for depth */
+  background-color: #C0C0C0; 
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px; 
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block;
+  font-size: 16px; 
+  margin: 4px 2px; 
+  transition-duration: 0.4s; 
+  cursor: pointer; 
+  border-radius: 4px;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 }
 
 .submitButton:hover {
-  background-color: #A9A9A9; /* A slightly darker grey on hover */
-  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.2); /* Larger shadow on hover for a "lifting" effect */
+  background-color: #A9A9A9; 
+  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.2); 
 }
 .error {
   color: #ff3860;

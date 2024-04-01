@@ -14,6 +14,8 @@ import { useState } from "react";
 import UserContextProvider from "../context/User";
 import CategoryProducts from "./Components/Categories/CategoryProducts";
 import ProductInfo from "./Components/Products/ProductInfo";
+import Order from "./Components/Cart/Order";
+import OrderInfo from "./Components/Cart/OrderInfo";
 
 function App() {
 
@@ -55,19 +57,27 @@ const router = createBrowserRouter([
         path: "products",
         element:
        
-        <Products />
+        <Products />   
+      },
+      {
+        path: "Order",
+        element:
        
-        
-         
+        <Order/>
         
       },
       {
         path:'/categories/:id',
         element:<CategoryProducts/>
       },
+      
       {
         path:'/ProductInfo/:id',
         element:<ProductInfo/>
+      },
+      {
+        path:'/myorder',
+        element:<OrderInfo/>
       },
       {
         path: '*',

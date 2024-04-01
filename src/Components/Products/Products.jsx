@@ -9,14 +9,14 @@ import StarRating from "../../../Rating/StarRating";
 
 function Products() {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loader, setLoader] = useState(false);
   const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("");
   const { userName } = useContext(UserContext);
 
   const fetchProducts = async () => {
-    setLoading(true);
+    setLoader(true);
     try {
       let endpoint = `${import.meta.env.VITE_API}/products?page=1&limit=10`;
       if (searchTerm) {
@@ -25,9 +25,8 @@ function Products() {
       if (sortOrder) {
         endpoint += `&sort=${encodeURIComponent(sortOrder)}`;
       }
-
       const { data } = await axios.get(endpoint);
-      console.log(data);
+      
       if (data && data.products) {
         setProducts(data.products);
       } else {
@@ -36,7 +35,7 @@ function Products() {
     } catch (error) {
       setError("Failed to fetch products. Please try again later.");
     } finally {
-      setLoading(false);
+      setLoader(false);
     }
   };
 
@@ -56,11 +55,13 @@ function Products() {
     setSortOrder(e.target.value);
   };
 
-  if (loading) return <Loader />;
+  if (loader) return <Loader />;
   if (error) return <div className="error-message">{error}</div>;
 
   const addToCart = async (productId) => {
     const token = localStorage.getItem("userToken");
+    setLoader(true);
+    
     try {
       await axios.post(
         `${import.meta.env.VITE_API}/cart`,
@@ -108,8 +109,11 @@ function Products() {
           transition: Bounce,
         });
       }
+    } finally {
+      setLoader(false);
     }
   };
+
   return (
     <div className="hero">
       <div className="filter-container">
@@ -150,7 +154,7 @@ function Products() {
                     onClick={() => addToCart(product._id)}
                     className="btn btn-secondary"
                   >
-                    Add to Cart
+                    Add to Cart {loader && <Loader />} 
                   </button>
                 ) : null}
             </div>

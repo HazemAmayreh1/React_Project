@@ -58,12 +58,16 @@ function Navbar() {
               
               <ul className="dropdown-menu dropdown-menu-end">
                 <li><NavLink className="dropdown-item" to='/cart'>
-                <img src="../img/cart.png" alt="cart icon" width={25} height={25} />
+                <i className="bi bi-cart"></i>
                   CART
+                  </NavLink></li>
+                  <li><NavLink className="dropdown-item" to='/myorder'>
+                  <i className="bi bi-shop"></i>
+                  My orders
                   </NavLink></li>
                 <li><hr className="dropdown-divider" /></li>
                 <li><NavLink className="dropdown-item" onClick={logout}>
-                <img src="../img/logout.png" alt="Logout icon" width={20} height={20} />  
+                <i className="bi bi-box-arrow-right"></i>
                 LOGOUT
                   </NavLink></li>
               </ul>

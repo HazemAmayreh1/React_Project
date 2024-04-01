@@ -113,16 +113,7 @@
     border-radius: 5px;
    
   }
-  .checkboxGroup {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-    margin-bottom: 20px;
-  }
-  
-  .checkbox {
-    margin-right: 10px;
-  }
+ 
   
   .label {
     flex-grow: 1;

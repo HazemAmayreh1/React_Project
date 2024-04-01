@@ -44,6 +44,8 @@ function ProductInfo() {
   const isDiscounted = product.finalPrice < product.price;
   const addToCart = async (productId) => {
     const token = localStorage.getItem("userToken");
+    setLoading(true);
+    
     try {
       await axios.post(
         `${import.meta.env.VITE_API}/cart`,
@@ -91,8 +93,12 @@ function ProductInfo() {
           transition: Bounce,
         });
       }
+    } finally {
+      setLoading(false);
     }
   };
+
+
   return (
     <>
       <div className="infoback">
@@ -117,13 +123,13 @@ function ProductInfo() {
             )}
           </div>
           {userName ? (
-            <button
-              onClick={() => addToCart(product._id)}
-              className="btn btn-secondary"
-            >
-              Add to Cart
-            </button>
-          ) : null}
+                  <button
+                    onClick={() => addToCart(product._id)}
+                    className="btn btn-secondary"
+                  >
+                    Add to Cart {loading && <Loader />} 
+                  </button>
+                ) : null}
           <p className="product-description">{product.description}</p>
 
           <div className="sub-images">

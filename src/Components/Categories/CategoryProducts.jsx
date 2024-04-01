@@ -1,6 +1,6 @@
 
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import './CategoryProducts.css'; 
 import Loader from '../../../loader/Loader'; 
 import axios from 'axios'; 
@@ -89,7 +89,13 @@ function CategoryProducts() {
         <div className="products-container">
           {products.map(product => (
             <div className="card" key={product._id}>
-              <img src={product.mainImage.secure_url} alt={product.name} className="card-img-top" />
+               <NavLink to={`/ProductInfo/${product._id}`}>
+                <img
+                  src={product.mainImage.secure_url}
+                  alt={product.name}
+                  className="card-img-top"
+                />
+              </NavLink>
               <div className="card-body">
                 <h5 className="card-title">{product.name}</h5>
                 <p className='priceTitle'>{product.price}$</p>
