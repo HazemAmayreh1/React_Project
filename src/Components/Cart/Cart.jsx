@@ -267,9 +267,12 @@ function Cart() {
             
           </div>
         ))}
+        {cart.length > 0 && (
            <button className="remove-button" onClick={() => clearAllCart()}>
         Clear All
       </button>
+       )}
+         
       </div>
       
       <div className="summary-container">

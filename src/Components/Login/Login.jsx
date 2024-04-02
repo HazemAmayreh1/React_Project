@@ -68,7 +68,7 @@ function Login() {
           setUserToken(data.token); 
           setUserName(data.userName); 
           setTimeout(() => {
-            toast.success(`Login Successfully. Welcome, ${data.userName}!`, {
+            toast.success(`Login Successfully. Welcome`, {
               position: "top-right",
               autoClose: 4000,
               hideProgressBar: false,

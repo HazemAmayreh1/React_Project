@@ -64,7 +64,6 @@ function Order() {
         {
           headers: {
             Authorization: `Tariq__${token}`,
-            'Content-Type': 'application/json',
           },
         }
       );

@@ -16,6 +16,7 @@ import CategoryProducts from "./Components/Categories/CategoryProducts";
 import ProductInfo from "./Components/Products/ProductInfo";
 import Order from "./Components/Cart/Order";
 import OrderInfo from "./Components/Cart/OrderInfo";
+import UserProfile from "./Components/Profile/UserProfile";
 
 function App() {
 
@@ -79,6 +80,11 @@ const router = createBrowserRouter([
         path:'/myorder',
         element:<OrderInfo/>
       },
+      {
+        path:'/userprofile',
+        element:<UserProfile/>
+      },
+      
       {
         path: '*',
         element: <NotFound/>

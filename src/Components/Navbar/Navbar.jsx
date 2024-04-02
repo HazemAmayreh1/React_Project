@@ -57,13 +57,17 @@ function Navbar() {
               </a>
               
               <ul className="dropdown-menu dropdown-menu-end">
+              <li><NavLink className="dropdown-item" to='/userprofile'>
+                  <i className="bi bi-person"></i>
+                  PROFILE
+                  </NavLink></li>
                 <li><NavLink className="dropdown-item" to='/cart'>
                 <i className="bi bi-cart"></i>
                   CART
                   </NavLink></li>
                   <li><NavLink className="dropdown-item" to='/myorder'>
                   <i className="bi bi-shop"></i>
-                  My orders
+                  MY ORDERS
                   </NavLink></li>
                 <li><hr className="dropdown-divider" /></li>
                 <li><NavLink className="dropdown-item" onClick={logout}>

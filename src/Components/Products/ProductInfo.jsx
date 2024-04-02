@@ -14,6 +14,8 @@ function ProductInfo() {
   const [error, setError] = useState("");
   const [avgRating, setAvgRating] = useState(null);
   const { userName } = useContext(UserContext);
+  const [comment, setComment] = useState("");
+  const [rating, setRating] = useState(0);
 
   const fetchProduct = async () => {
     try {
@@ -45,7 +47,7 @@ function ProductInfo() {
   const addToCart = async (productId) => {
     const token = localStorage.getItem("userToken");
     setLoading(true);
-    
+
     try {
       await axios.post(
         `${import.meta.env.VITE_API}/cart`,
@@ -97,8 +99,101 @@ function ProductInfo() {
       setLoading(false);
     }
   };
+  const handleRating = (rate) => {
+    setRating(rate);
+  };
 
+  // const handleSubmitReview = async () => {
+  //   const token = localStorage.getItem("userToken");
+  //   try {
+  //     const {data} = await axios.post(
+  //       `${import.meta.env.VITE_API}/products/${id}/review`,
+  //       {
+  //         comment:comment,
+  //         rating:rating,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: `Tariq__${token}`,
+  //         },
+  //       }
+        
+  //     );
+  //     toast.success("Review successfully added", {
+  //       position: "top-right",
+  //       autoClose: 5000,
+  //       hideProgressBar: false,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //       theme: "light",
+  //       transition: Bounce,
+  //     });
+  //   } catch (error) {
+  //     toast.error("Failed to add review. Please try again.", {
+  //       position: "top-right",
+  //       autoClose: 5000,
+  //       hideProgressBar: false,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //       theme: "light",
+  //       transition: Bounce,
+  //     });
+  //   }
+  // };
+  const addReview = async (comment,rating) => {
+    const token = localStorage.getItem("userToken");
+    setLoading(true);
+  
+    try {
+      const response = await axios.post(
+        `${import.meta.env.VITE_API}/products/${product._id}/review`,
+        {
+          comment,
+          rating
+        },
+        {
+          headers: {
+            Authorization: `Tariq__${token}`,
+          },
+        }
+      );
+      toast.success("Order placed successfully!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
 
+    } catch (error) {
+      toast.error("Failed to place order. Please try again.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      console.error("Order placement error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addReview(comment, rating);
+  };
   return (
     <>
       <div className="infoback">
@@ -113,7 +208,7 @@ function ProductInfo() {
                 <span className="priceFinal">{product.finalPrice}$</span>
               </>
             ) : (
-                <span className="priceFinal">{product.finalPrice}$</span>
+              <span className="priceFinal">{product.finalPrice}$</span>
             )}
           </div>
 
@@ -123,13 +218,13 @@ function ProductInfo() {
             )}
           </div>
           {userName ? (
-                  <button
-                    onClick={() => addToCart(product._id)}
-                    className="btn btn-secondary"
-                  >
-                    Add to Cart {loading && <Loader />} 
-                  </button>
-                ) : null}
+            <button
+              onClick={() => addToCart(product._id)}
+              className="btn btn-secondary"
+            >
+              Add to Cart {loading && <Loader />}
+            </button>
+          ) : null}
           <p className="product-description">{product.description}</p>
 
           <div className="sub-images">
@@ -148,7 +243,18 @@ function ProductInfo() {
               <StarRating rating={avgRating} />
             </div>
           )}
-
+          <div className="add-review-container">
+      <textarea
+        className="comment-input"
+        placeholder="Comment"
+        value={comment}
+        onChange={(e) => setComment(e.target.value)}
+      />
+      <StarRating rating={rating} onRating={handleRating} />
+      <button className="btn-add-review" onClick={handleSubmit}>
+        Add Review
+      </button>
+    </div>
           <div className="reviews">
             {product.reviews?.map((feedback, index) => (
               <div key={index} className="review">

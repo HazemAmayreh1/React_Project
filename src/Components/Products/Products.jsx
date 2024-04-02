@@ -121,6 +121,7 @@ function Products() {
           type="text"
           placeholder="Search products..."
           value={searchTerm}
+          className="search-input"
           onChange={handleSearchChange}
         />
         <select value={sortOrder} onChange={handleSortChange}>
@@ -152,7 +153,7 @@ function Products() {
               {userName ? (
                   <button
                     onClick={() => addToCart(product._id)}
-                    className="btn btn-secondary"
+                    className="Cancel-button"
                   >
                     Add to Cart {loader && <Loader />} 
                   </button>

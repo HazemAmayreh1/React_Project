@@ -1,0 +1,220 @@
+
+.order-list {
+    width: calc(100% - 20px);
+    max-width: 62.5rem;
+    margin: 20px auto;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+  
+.header-order-title {
+    font-size: 2.5rem; 
+    color: #333; 
+    text-transform: uppercase; 
+    font-weight: bold; 
+    margin-bottom: 1rem;
+    text-align: center; 
+    letter-spacing: 0.05em; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+    padding: 0.5rem 0; 
+    border-bottom: 3px solid #ff5722; 
+
+    background-color: #fafafa; 
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
+    transition: all 0.3s ease; 
+}
+
+.header-order-title{
+    background-color: #f5f5f5; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+  
+.order-card {
+    background-color: #ecf0f1;
+    border-left: 4px solid #ff5722;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+  
+.order-info {
+    color: #34495e;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+  
+.order-summary {
+    margin-top: 1rem;
+}
+  
+.order-summary h3 {
+    color: #2c3e50;
+    border-bottom: 1px solid #bdc3c7;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+  
+.order-item {
+    background-color: #fff;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+  
+.product-info {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.Cancel-button {
+    background-color: #ff5722; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .Cancel-button:hover {
+    background-color:  #c53e15; 
+  }
+  
+  .Cancel-button:active {
+    background-color: rgb(163, 50, 46); 
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Cancel-button:focus {
+    box-shadow: 0 0 0 3px rgba(217, 83, 79, 0.5); 
+  }
+  
+.product-image {
+    flex: 0 0 50px;
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 1rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 3px;
+}
+  
+.product-name {
+    font-size: 1rem;
+    color: #34495e;
+    flex: 1 1 auto;
+}
+  
+.product-unit-price {
+    text-decoration: line-through;
+}
+  
+.product-quantity, .product-stook, .product-unit-price, .product-final-price {
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    margin-right: 1rem;
+    flex: 0 0 auto;
+}
+  
+.order-total {
+    background-color: #ff5722;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.total-final-price {
+    font-weight: bold;
+}
+  
+@media (max-width: 768px) {
+    .product-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+  
+    .product-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 0.5rem;
+        border: none;
+    }
+  
+    .product-name, .product-quantity, .product-stook, .product-unit-price, .product-final-price {
+        text-align: left;
+        font-size: 0.8rem;
+    }
+  
+    .order-total {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+  
+    .total-final-price {
+        order: 2;
+        width: 100%;
+        text-align: left;
+    }
+}
+  
+@media (max-width: 600px) {
+    .order-list {
+        width: 95%;
+    }
+  
+    .order-item {
+        padding: 0.5rem;
+    }
+}
+  
+@media (max-width: 480px) {
+    .order-header h2 {
+        font-size: 1.5rem;
+    }
+  
+    .product-quantity, .product-stook, .product-unit-price, .product-final-price {
+        font-size: 0.75rem;
+        margin: 0.25rem 0;
+    }
+  
+    .order-total {
+        padding: 0.3rem;
+        flex-direction: column;
+    }
+  
+    .total-final-price {
+        order: 2;
+        width: 100%;
+        text-align: center;
+    }
+}
+  
+@media (max-width: 320px) {
+    .order-header h2 {
+        font-size: 1.2rem;
+    }
+  
+    .order-card {
+        border-left: none;
+        border-top: 4px solid #ff5722;
+    }
+    .product-info{
+        gap:0.5rem;
+    }
+
+}

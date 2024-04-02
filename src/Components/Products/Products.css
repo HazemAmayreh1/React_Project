@@ -17,6 +17,14 @@
     border: 1px solid #ccc;
     border-radius: 5px;
   }
+  .search-input {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    width: 10%;
+    font-size: 16px; 
+  }
+
   
   .filter-container button {
     background-color: #5cb85c;
@@ -24,6 +32,7 @@
     border: none;
     cursor: pointer;
   }
+  
   
   .filter-container button:hover {
     background-color: #4cae4c;
@@ -36,7 +45,7 @@
   
   .products-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 20px;
     width: 100%;
     max-width: 1200px; 

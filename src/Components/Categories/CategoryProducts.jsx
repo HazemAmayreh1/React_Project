@@ -101,7 +101,7 @@ function CategoryProducts() {
                 <p className='priceTitle'>{product.price}$</p>
               </div>
               {userName ? (
-                  <button onClick={() => addToCart(product._id)} className="btn btn-secondary">
+                  <button onClick={() => addToCart(product._id)} className="Cancel-button">
                     ADD TO CART
                   </button>
                 ) : null}
