@@ -7,6 +7,7 @@ import { Bounce, toast } from "react-toastify";
 import { UserContext } from "../../../context/User";
 import StarRating from "../../../Rating/StarRating";
 
+
 function ProductInfo() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -99,69 +100,27 @@ function ProductInfo() {
       setLoading(false);
     }
   };
-  const handleRating = (rate) => {
-    setRating(rate);
-  };
+ 
 
-  // const handleSubmitReview = async () => {
-  //   const token = localStorage.getItem("userToken");
-  //   try {
-  //     const {data} = await axios.post(
-  //       `${import.meta.env.VITE_API}/products/${id}/review`,
-  //       {
-  //         comment:comment,
-  //         rating:rating,
-  //       },
-  //       {
-  //         headers: {
-  //           Authorization: `Tariq__${token}`,
-  //         },
-  //       }
-        
-  //     );
-  //     toast.success("Review successfully added", {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //       theme: "light",
-  //       transition: Bounce,
-  //     });
-  //   } catch (error) {
-  //     toast.error("Failed to add review. Please try again.", {
-  //       position: "top-right",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //       theme: "light",
-  //       transition: Bounce,
-  //     });
-  //   }
-  // };
-  const addReview = async (comment,rating) => {
+  const addReview = async (productId) => { 
     const token = localStorage.getItem("userToken");
     setLoading(true);
   
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API}/products/${product._id}/review`,
+        `${import.meta.env.VITE_API}/products/${productId}/review`, 
         {
           comment,
           rating
         },
         {
           headers: {
-            Authorization: `Tariq__${token}`,
+            Authorization: `Tariq__${token}`, 
           },
         }
       );
-      toast.success("Order placed successfully!", {
+      console.log(response); 
+      toast.success("Review added successfully!", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -172,9 +131,9 @@ function ProductInfo() {
         theme: "light",
         transition: Bounce,
       });
-
+      setComment(''); 
     } catch (error) {
-      toast.error("Failed to place order. Please try again.", {
+      toast.error("already review", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -185,15 +144,14 @@ function ProductInfo() {
         theme: "light",
         transition: Bounce,
       });
-      console.error("Order placement error:", error);
+      console.error("Review addition error:", error);
     } finally {
       setLoading(false);
     }
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    addReview(comment, rating);
-  };
+  
+  
+ 
   return (
     <>
       <div className="infoback">
@@ -244,15 +202,16 @@ function ProductInfo() {
             </div>
           )}
           <div className="add-review-container">
-      <textarea
+       <textarea
         className="comment-input"
         placeholder="Comment"
         value={comment}
         onChange={(e) => setComment(e.target.value)}
       />
-      <StarRating rating={rating} onRating={handleRating} />
-      <button className="btn-add-review" onClick={handleSubmit}>
-        Add Review
+      <StarRating rating={rating} onRating={setRating} />
+
+      <button className="btn-add-review" onClick={() => addReview(product._id)}>
+     Add Review
       </button>
     </div>
           <div className="reviews">

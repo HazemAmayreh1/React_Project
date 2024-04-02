@@ -1,17 +1,25 @@
 import React from 'react';
 
-function StarRating({ rating }) {
+function StarRating({ rating, onRating }) {
   const totalStars = 5;
 
-  const fullStars = Math.floor(rating);
-  const halfStars = rating % 1 !== 0 ? 1 : 0;
-  const emptyStars = totalStars - fullStars - halfStars;
+  const handleStarClick = (index) => {
+    onRating(index + 1);
+  };
 
   return (
     <div className="star-rating">
-      {'★'.repeat(fullStars)}
-      {'⭐'.repeat(halfStars)}
-      {'☆'.repeat(emptyStars)}
+      {[...Array(totalStars)].map((star, index) => {
+        return (
+          <span
+            key={index}
+            onClick={() => handleStarClick(index)}
+            style={{ cursor: 'pointer', marginRight: '5px' }}
+          >
+            {index < rating ? '★' : '☆'}
+          </span>
+        );
+      })}
     </div>
   );
 }

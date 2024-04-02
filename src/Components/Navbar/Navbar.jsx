@@ -8,7 +8,7 @@ import { Slide, toast } from 'react-toastify';
 import Loader from "../../../loader/Loader";
 
 function Navbar() {
-  const {userName,setUserName,setUserToken} = useContext(UserContext);
+  const {userName,setUserName,setUserToken,userImage} = useContext(UserContext);
   const navigate = useNavigate();
   const [loader,setLoader]=useState(false);
   const logout = ()=>{
@@ -58,8 +58,9 @@ function Navbar() {
               
               <ul className="dropdown-menu dropdown-menu-end">
               <li><NavLink className="dropdown-item" to='/userprofile'>
-                  <i className="bi bi-person"></i>
-                  PROFILE
+                  {/* <i className="bi bi-person"></i> */}
+                  {userImage && <img src={userImage} alt="User Profile" />}
+                  
                   </NavLink></li>
                 <li><NavLink className="dropdown-item" to='/cart'>
                 <i className="bi bi-cart"></i>

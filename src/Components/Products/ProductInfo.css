@@ -107,6 +107,49 @@
   font-size: 1rem;
   color: #333;
 }
+.add-review-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+.comment-input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  resize: none
+}
+
+.btn-add-review {
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  display: inline-block; 
+  vertical-align: top; 
+}
+
+.btn-add-review:hover, 
+.btn-add-review:focus {
+  background-color: #4cae4c;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
 
 .reviews {
   margin-top: 20px;
