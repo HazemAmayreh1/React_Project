@@ -127,6 +127,27 @@
     background-color: #cccccc;
     cursor: not-allowed;
   }
+  .search-page-number {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    width: 60%;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .search-page-number:focus {
+    border-color: #007bff; 
+    box-shadow: 0 0 0 2px rgba(0,123,255,.25);
+    outline: none;
+  }
+  
+  .search-page-number:hover {
+    border-color: #007bff; 
+  }
+  
   
   
   @media (max-width: 768px) {

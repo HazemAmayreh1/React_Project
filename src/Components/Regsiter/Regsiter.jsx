@@ -204,7 +204,7 @@ function Register() {
 
             <div className={styles.inputBorder}>
               <label htmlFor="image" className={styles.insideLabel}>
-                file image
+                Your Image Profile 
               </label>
               <input
                 type="file"

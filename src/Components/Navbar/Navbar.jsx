@@ -68,7 +68,7 @@ function Navbar() {
   };
   useEffect(() => {
     getAllCart();
-  }, [cart]);
+  }, []);
   
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0)
 
@@ -85,8 +85,8 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <div className="navbar-nav mx-auto">
-            <NavLink className="nav-item nav-link" aria-current="page" to='/'>Home</NavLink>
-            <NavLink className="nav-item nav-link" to='/products'>Products</NavLink>
+            <NavLink className="nav-item nav-link" aria-current="page" to='/'>HOME</NavLink>
+            <NavLink className="nav-item nav-link" to='/products'>PROUDCT</NavLink>
           </div>
           {
               userName?
@@ -132,7 +132,7 @@ function Navbar() {
               <ul className='navbar-nav'>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Account
+              ACCOUNT
               </a>
               <ul className="dropdown-menu dropdown-menu-end">
               <li><NavLink className="dropdown-item" to='/register'>REGISTER</NavLink></li>

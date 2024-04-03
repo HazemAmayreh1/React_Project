@@ -46,10 +46,11 @@ function Products() {
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       fetchProducts();
+      handlePageChange(inputPage);
     }, 600);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [searchTerm, sortOrder, currentPage, limit]); 
+  }, [searchTerm, sortOrder, currentPage, limit,inputPage]); 
 
   
 
@@ -60,6 +61,13 @@ function Products() {
 
   const handleSortChange = (e) => {
     setSortOrder(e.target.value);
+  };
+  const handleInputChange = (e) => {
+    const newValue = e.target.value;
+    if (newValue === '' || (Number(newValue) >=1 && Number(newValue) <= totalPages+2)) {
+      setInputPage(newValue);
+    }
+    
   };
   const totalPages = Math.ceil(totalProducts / limit);
   const goToNextPage = () => setCurrentPage(currentPage + 1);
@@ -181,30 +189,17 @@ function Products() {
             </div>
           ))}
       <div className="pagination-controls">
-        <button 
-          onClick={() => setCurrentPage(currentPage - 1)} 
-          disabled={currentPage ===1}> 
-          Prev
-        </button>
-        <span>Page {currentPage}</span>
-        <button 
-          onClick={() => setCurrentPage(currentPage + 1)} 
-          disabled={currentPage >= totalPages+2}> 
-          Next
-        </button>
-        <div>
+       
+        
         <input
-          type="number"
-          value={inputPage}
-          onChange={(e) => setInputPage(e.target.value)}
-          placeholder="Go to page"
+         type="number"
+         value={inputPage}
+         onChange={handleInputChange}
+         placeholder="Go to page"
+         className="search-page-number"
+         
         />
-        <button
-          onClick={() => handlePageChange(Number(inputPage))}
-        >
-          Go
-        </button>
-      </div>         
+               
       </div>
        
 
