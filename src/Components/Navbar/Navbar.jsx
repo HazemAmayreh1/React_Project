@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -6,11 +6,14 @@ import './Navbar.css';
 import { UserContext } from '../../../context/User';
 import { Slide, toast } from 'react-toastify';
 import Loader from "../../../loader/Loader";
+import axios from 'axios';
 
 function Navbar() {
   const {userName,setUserName,setUserToken,userImage} = useContext(UserContext);
   const navigate = useNavigate();
   const [loader,setLoader]=useState(false);
+  const [users, setUserData] = useState(null);
+  const [cart, setCart] = useState([]);
   const logout = ()=>{
     localStorage.removeItem('userToken');
     setUserToken(null);
@@ -30,6 +33,46 @@ function Navbar() {
       });
 
   }
+  useEffect(() => {
+    const token = localStorage.getItem("userToken");
+    const UserData = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_API}/user/profile`, {
+          headers: {
+            Authorization: `Tariq__${token}`,
+          },
+        });
+        setUserData(response.data); 
+        setLoader(false); 
+      } catch (error) {
+        setLoader(false); 
+      }
+    };
+    UserData(); 
+  }, []);
+  const getAllCart = async () => {
+    setLoader(true);
+    try {
+      const token = localStorage.getItem("userToken");
+      const { data } = await axios.get(`${import.meta.env.VITE_API}/cart`, {
+        headers: {
+          Authorization: `Tariq__${token}`, 
+        },
+      });
+      console.log(data.products);
+      setCart(data.products); 
+    } catch (error) {
+      console.error("Failed to fetch cart data:", error);
+    } finally {
+      setLoader(false);
+    }
+  };
+  useEffect(() => {
+    getAllCart();
+  }, [cart]);
+  
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0)
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <div className="container">
@@ -52,19 +95,26 @@ function Navbar() {
               <ul className='navbar-nav '>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../../../../img/greenactive.png" alt="green active icon" width={15} height={15} className="active-icon"/>
+              {users && users.user && users.user.image &&
+             <img src={users.user.image.secure_url} className='size-profile' alt="User" />
+               }
               {userName}
               </a>
               
-              <ul className="dropdown-menu dropdown-menu-end">
-              <li><NavLink className="dropdown-item" to='/userprofile'>
-                  <i className="bi bi-person"></i>
-                  User Profile
-                  </NavLink></li>
-                <li><NavLink className="dropdown-item" to='/cart'>
-                <i className="bi bi-cart"></i>
-                  CART
-                  </NavLink></li>
+               <ul className="dropdown-menu dropdown-menu-end">
+               <li>
+               <NavLink className="dropdown-item" to='/userprofile'>
+               <i className="bi bi-person"></i>
+               Profile
+              </NavLink>
+              </li>
+              <NavLink className="dropdown-item" to='/cart'>
+        <i className="bi bi-cart"></i>
+        Cart 
+        {totalQuantity > 0 && 
+          <span className="cart-badge">{totalQuantity}</span>
+        }
+      </NavLink>
                   <li><NavLink className="dropdown-item" to='/myorder'>
                   <i className="bi bi-shop"></i>
                   MY ORDERS

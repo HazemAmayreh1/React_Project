@@ -17,6 +17,7 @@ function UserProfile() {
             Authorization: `Tariq__${token}`,
           },
         });
+        console.log(response);
         setUserData(response.data); 
         setIsLoading(false); 
       } catch (error) {
@@ -40,7 +41,7 @@ function UserProfile() {
         </NavLink>   
   </div>
   </div>
-  
+
   );
 }
 

@@ -238,14 +238,13 @@ function Cart() {
               </div>
             </div>
             <div className="product-quantity">
-              <button
-                onClick={() =>
-                  handleDecreaseQuantity(item.details._id, item.quantity)
-                }
-                className="quantity-adjust-button"
-              >
-                -
-              </button>
+            <button
+            onClick={() => handleDecreaseQuantity(item.details._id, item.quantity)}
+            className="quantity-adjust-button"
+          disabled={item.quantity <= 1} 
+          >
+          -
+          </button>
               <input
                 type="text"
                 value={item.quantity}
