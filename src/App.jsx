@@ -17,6 +17,9 @@ import ProductInfo from "./Components/Products/ProductInfo";
 import Order from "./Components/Cart/Order";
 import OrderInfo from "./Components/Cart/OrderInfo";
 import UserProfile from "./Components/Profile/UserProfile";
+import ForgetPass from "./Components/Login/SendCode";
+import SendCode from "./Components/Login/SendCode";
+import ForgetPassword from "./Components/Login/ForgetPassword";
 
 function App() {
 
@@ -84,7 +87,14 @@ const router = createBrowserRouter([
         path:'/userprofile',
         element:<UserProfile/>
       },
-      
+      {
+        path:'/sendcode',
+        element:<SendCode/>
+      },
+      {
+        path:'/forgetpassword',
+        element:<ForgetPassword/>
+      },
       {
         path: '*',
         element: <NotFound/>

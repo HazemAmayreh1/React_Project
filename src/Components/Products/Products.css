@@ -101,6 +101,33 @@
     background-color: #0056b3;
     color: white;
   }
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-controls button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination-controls button:hover {
+    background-color: #0056b3;
+  }
+  
+  .pagination-controls button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
   
   @media (max-width: 768px) {
     .filter-container {

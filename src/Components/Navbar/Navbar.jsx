@@ -16,7 +16,7 @@ function Navbar() {
     setUserToken(null);
     setUserName(null);
     setLoader(true);
-    toast.info('You has been logged out.', {
+    toast.info('You has been logged out.good by', {
       position: "top-right",
       autoClose: 1000,
       hideProgressBar: false,
@@ -58,9 +58,8 @@ function Navbar() {
               
               <ul className="dropdown-menu dropdown-menu-end">
               <li><NavLink className="dropdown-item" to='/userprofile'>
-                  {/* <i className="bi bi-person"></i> */}
-                  {userImage && <img src={userImage} alt="User Profile" />}
-                  
+                  <i className="bi bi-person"></i>
+                  User Profile
                   </NavLink></li>
                 <li><NavLink className="dropdown-item" to='/cart'>
                 <i className="bi bi-cart"></i>

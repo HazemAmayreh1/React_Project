@@ -2,12 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Virtual, Navigation, Pagination } from 'swiper/modules';
-
-// Only import Swiper CSS once
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import './swiperStyle.css'; // Ensure this path matches your CSS file for swiper
+import './swiperStyle.css'; 
 import { Link } from 'react-router-dom';
 
 function Categories() {

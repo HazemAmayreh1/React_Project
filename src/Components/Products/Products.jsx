@@ -9,16 +9,19 @@ import StarRating from "../../../Rating/StarRating";
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const [totalProducts, setTotalProducts] = useState(0);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("");
+  const [currentPage, setCurrentPage] = useState(1); 
+  const [limit, setLimit] = useState(4); 
   const { userName } = useContext(UserContext);
 
   const fetchProducts = async () => {
     setLoader(true);
     try {
-      let endpoint = `${import.meta.env.VITE_API}/products?page=1&limit=10`;
+      let endpoint = `${import.meta.env.VITE_API}/products?page=${currentPage}&limit=${limit}`;
       if (searchTerm) {
         endpoint += `&search=${encodeURIComponent(searchTerm)}`;
       }
@@ -45,15 +48,22 @@ function Products() {
     }, 600);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [searchTerm, sortOrder]);
+  }, [searchTerm, sortOrder, currentPage, limit]); 
+
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
+    setCurrentPage(1);
   };
 
   const handleSortChange = (e) => {
     setSortOrder(e.target.value);
   };
+  const totalPages = Math.ceil(totalProducts / limit);
+  const goToNextPage = () => setCurrentPage(currentPage + 1);
+  const goToPreviousPage = () => setCurrentPage(currentPage - 1);
+
+
 
   if (loader) return <Loader />;
   if (error) return <div className="error-message">{error}</div>;
@@ -160,7 +170,23 @@ function Products() {
                 ) : null}
             </div>
           ))}
+      <div className="pagination-controls">
+        <button 
+          onClick={() => setCurrentPage(currentPage - 1)} 
+          disabled={currentPage ===1}> 
+          Prev
+        </button>
+        <span>Page {currentPage}</span>
+        <button 
+          onClick={() => setCurrentPage(currentPage + 1)} 
+          disabled={currentPage >= totalPages+2}> 
+          Next
+        </button>
+      </div>
+
+
         </div>
+       
       </div>
     </div>
   );

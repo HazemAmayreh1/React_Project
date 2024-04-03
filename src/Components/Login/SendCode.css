@@ -1,0 +1,81 @@
+.hero-send-code {
+  background-size: cover;
+  padding: 20px;
+  width: 100%;
+  max-width: 5000px;
+  height: 84vh;
+  margin: auto;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-send-code::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: url(https://media.gettyimages.com/id/946877514/video/abstract-stripes-background-loop.jpg?s=640x640&k=20&c=qeXkFIYL-eUD7_hIbTedX8AQQBXVBwjTFrICzzbpc2E=);
+  background-blend-mode: overlay;
+  background-size: cover;
+  filter: blur(5px) brightness(0.75) grayscale(20%) contrast(110%);
+}
+.forget-password-container {
+    width: 410px;
+    margin: 40px auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .forget-password-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .forget-password-container p {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .forget-password-container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .forget-password-container input[type="email"]:focus {
+    outline: none;
+    border-color: #aaa;
+  }
+  
+  .forget-password-container button {
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    background-color: #767676;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .forget-password-container button:hover {
+    background-color: #5a5a5a;
+  }
+  

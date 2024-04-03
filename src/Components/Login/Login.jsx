@@ -155,7 +155,8 @@ function Login() {
             <button type="submit" className={styles.submitButton} >
             Login{loader && <Loader />} 
             </button>
-            <NavLink className={styles.link} aria-current="page" to='/register'>i dont have account</NavLink>
+            <NavLink className="nav-link" activeClassName="nav-link-active"  to='/register'>i dont have account</NavLink>
+            <NavLink className="nav-link" activeClassName="nav-link-active"  to='/sendcode'>Forget Password</NavLink>
         </form>
         </div>
       </div>

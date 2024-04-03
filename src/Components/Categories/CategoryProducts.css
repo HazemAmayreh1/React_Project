@@ -71,6 +71,18 @@
   background-color: #283618;
   border-color: #283618;
 }
+.error-message {
+  color: #ff6b6b; 
+  background-color: #ffe3e3; 
+  border: 1px solid #ff6b6b;
+  border-radius: 4px; 
+  padding: 10px;
+  margin: 10px 0; 
+  text-align: center; 
+  font-size: 1rem; 
+  font-weight: bold; 
+}
+
 
 @media (max-width: 768px) {
   .card {
