@@ -52,7 +52,7 @@ function Navbar() {
               <ul className='navbar-nav '>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="../img/green active .png" alt="green active icon" width={15} height={15} className="active-icon"/>
+              <img src="../../img/greenactive.png" alt="green active icon" width={15} height={15} className="active-icon"/>
               {userName}
               </a>
               
