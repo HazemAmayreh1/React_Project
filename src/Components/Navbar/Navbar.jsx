@@ -59,7 +59,6 @@ function Navbar() {
           Authorization: `Tariq__${token}`, 
         },
       });
-      console.log(data.products);
       setCart(data.products); 
     } catch (error) {
       console.error("Failed to fetch cart data:", error);

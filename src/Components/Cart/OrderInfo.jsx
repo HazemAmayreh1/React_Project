@@ -117,7 +117,7 @@ function OrderInfo() {
             <p>Address: {order.address}</p>
           </div>
           {
-      order.status !== 'cancelled' && (
+      order.status == 'pending' && (
         <button
         className="Cancel-button"
        onClick={() => cancelFromOrder(order._id)}
@@ -126,6 +126,7 @@ function OrderInfo() {
         </button>
   )
 }
+
 
           <div className="order-summary">
             <h3>Product</h3>
@@ -161,9 +162,15 @@ function OrderInfo() {
                   0
                 )}
               </span>
-              <span className="total-final-price">
+              {
+      order.status !== 'cancelled' &&(
+           <span className="total-final-price">
                 Total Price: ${order.finalPrice.toFixed(2)}
-              </span>
+              </span> 
+               
+  )
+}
+             
             </div>
           </div>
         </div>

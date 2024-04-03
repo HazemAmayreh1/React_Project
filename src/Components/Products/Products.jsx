@@ -16,6 +16,7 @@ function Products() {
   const [sortOrder, setSortOrder] = useState("");
   const [currentPage, setCurrentPage] = useState(1); 
   const [limit, setLimit] = useState(4); 
+  const [inputPage, setInputPage] = useState('');
   const { userName } = useContext(UserContext);
 
   const fetchProducts = async () => {
@@ -50,6 +51,7 @@ function Products() {
     return () => clearTimeout(delayDebounceFn);
   }, [searchTerm, sortOrder, currentPage, limit]); 
 
+  
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -62,7 +64,15 @@ function Products() {
   const totalPages = Math.ceil(totalProducts / limit);
   const goToNextPage = () => setCurrentPage(currentPage + 1);
   const goToPreviousPage = () => setCurrentPage(currentPage - 1);
-
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages+2) {
+      setCurrentPage(page);
+    } else {
+      console.error('Page number is out of range.');
+    }
+  }
+  
+ 
 
 
   if (loader) return <Loader />;
@@ -182,8 +192,21 @@ function Products() {
           disabled={currentPage >= totalPages+2}> 
           Next
         </button>
+        <div>
+        <input
+          type="number"
+          value={inputPage}
+          onChange={(e) => setInputPage(e.target.value)}
+          placeholder="Go to page"
+        />
+        <button
+          onClick={() => handlePageChange(Number(inputPage))}
+        >
+          Go
+        </button>
+      </div>         
       </div>
-
+       
 
         </div>
        
