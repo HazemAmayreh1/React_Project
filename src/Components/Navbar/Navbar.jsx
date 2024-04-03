@@ -68,7 +68,7 @@ function Navbar() {
   };
   useEffect(() => {
     getAllCart();
-  }, []);
+  }, [cart]);
   
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0)
 
