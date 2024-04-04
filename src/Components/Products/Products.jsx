@@ -145,6 +145,14 @@ function Products() {
   return (
     <div className="hero">
       <div className="filter-container">
+      <input
+         type="number"
+         value={inputPage}
+         onChange={handleInputChange}
+         placeholder="Write a Page Number"
+         className="search-page-number"
+         
+        />
         <input
           type="text"
           placeholder="Search products..."
@@ -188,19 +196,24 @@ function Products() {
                 ) : null}
             </div>
           ))}
-      <div className="pagination-controls">
        
         
-        <input
-         type="number"
-         value={inputPage}
-         onChange={handleInputChange}
-         placeholder="Go to page"
-         className="search-page-number"
-         
-        />
-               
+      
+         <div className="pagination-controls">
+        <button 
+          onClick={() => setCurrentPage(currentPage - 1)} 
+          disabled={currentPage ===1}> 
+          Prev
+        </button>
+       
+        <span>Page {currentPage}</span>
+        <button 
+          onClick={() => setCurrentPage(currentPage + 1)} 
+          disabled={currentPage >= totalPages+2}> 
+          Next
+        </button>
       </div>
+               
        
 
         </div>
